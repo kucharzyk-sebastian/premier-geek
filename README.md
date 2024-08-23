@@ -56,6 +56,6 @@ Deployment is as simple as running `cdk deploy pocPremierGeek`.
 ### Environments
 Currently, we have the following environments deployed:
 
-| Environment | API URL                                                                          |
-|-------------|:--------------------------------------------------------------------------------:|
-| POC         | https://zsvbgcsuzg2qrbj7em5pglawgq0gnjpy.lambda-url.eu-central-1.on.aws          |
+| Environment | API URL                                                                 | Website URL                           |
+|-------------|:-----------------------------------------------------------------------:|:-------------------------------------:|
+| POC         | https://zsvbgcsuzg2qrbj7em5pglawgq0gnjpy.lambda-url.eu-central-1.on.aws | https://d3q26j451d155y.cloudfront.net |
