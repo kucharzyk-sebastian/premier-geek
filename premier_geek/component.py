@@ -6,6 +6,7 @@ from constructs import Construct
 
 from premier_geek.api.infrastructure import Api
 from premier_geek.auth.infrastructure import UserProfileStore
+from premier_geek.website.infrastructure import Website
 
 
 class PremierGeek(Stack):
@@ -33,3 +34,4 @@ class PremierGeek(Stack):
             user_pool_id=self.user_profile_store.user_pool.user_pool_id,
             user_pool_client_id=self.user_profile_store.user_pool_client.user_pool_client_id,
         )
+        self.website = Website(self, "Website")

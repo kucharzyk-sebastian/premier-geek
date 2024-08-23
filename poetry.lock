@@ -143,6 +143,21 @@ aws-cdk-lib = ">=2.130.0,<3.0.0"
 constructs = ">=10.3.0,<11.0.0"
 
 [[package]]
+name = "cdk-react-bucket-deployment"
+version = "0.1.1"
+description = "A custom AWS CDK construct that integrates node for building react projects and deploying them to AWS S3."
+optional = false
+python-versions = ">=3.12,<4.0"
+files = [
+    {file = "cdk_react_bucket_deployment-0.1.1-py3-none-any.whl", hash = "sha256:3317171afd994a7abc29be1e1251d8459f4a1a4666147df94635869e81f24050"},
+    {file = "cdk_react_bucket_deployment-0.1.1.tar.gz", hash = "sha256:656714cc4c69daae527a6228fd5ed4e7d634fe5bb3f5c981aedfefacacbee668"},
+]
+
+[package.dependencies]
+aws-cdk-lib = ">=2.130.0,<3.0.0"
+constructs = ">=10.3.0,<11.0.0"
+
+[[package]]
 name = "cfgv"
 version = "3.4.0"
 description = "Validate configuration and produce human readable error messages."
@@ -527,4 +542,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "4380a3f07a2a6df146b6f446dcd3ff2aaa2f6a538bb1f7f91c0259ec8232352b"
+content-hash = "93a786f69ecdedba7cdaf4b2638cfc48d3d214a4575fe8d6eef9d93cb56dd9af"
