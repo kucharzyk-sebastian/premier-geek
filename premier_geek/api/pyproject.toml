@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "premier-geek-api"
+version = "0.0.0"
+description = "An API for the Premier Geek app backend"
+authors = [
+    "Sebastian Kucharzyk <kucharzyk.sebastian@gmail.com>",
+]
+readme = "README.md"
+packages = [{include = "runtime"}]
+
+[tool.poetry.dependencies]
+python = "~3.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
