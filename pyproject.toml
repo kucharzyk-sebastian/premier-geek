@@ -65,3 +65,4 @@ reportMissingImports = true
 pythonVersion = "3.12"
 pythonPlatform = "Linux"
 typeCheckingMode = "strict"
+reportMissingTypeStubs = false

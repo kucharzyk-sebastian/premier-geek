@@ -1,3 +1,5 @@
+from typing import Any
+
 from aws_cdk import Duration
 from aws_cdk import Stack
 from constructs import Construct
@@ -15,7 +17,7 @@ class PremierGeek(Stack):
         access_token_validity: Duration,
         id_token_validity: Duration,
         refresh_token_validity: Duration,
-        **kwargs: dict,
+        **kwargs: Any,
     ) -> None:
         super().__init__(scope, construct_id, **kwargs)
         self.user_profile_store = UserProfileStore(

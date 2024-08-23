@@ -35,7 +35,7 @@ class Api(Construct):
         self.function = Function(
             self,
             "Function",
-            code=PoetryAssetCode(Path(__file__).parent.resolve(), deploy_time=True),
+            code=PoetryAssetCode(str(Path(__file__).parent.resolve()), deploy_time=True),
             handler="runtime.main.handler",
             runtime=Runtime.PYTHON_3_12,
             architecture=Architecture.X86_64,
