@@ -1,0 +1,9 @@
+# Secrets & env variables
+.env
+
+# Python generated files
+__pycache__
+.pytest_cache
+
+# IDE setup
+.vscode
