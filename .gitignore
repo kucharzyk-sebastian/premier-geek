@@ -7,3 +7,7 @@ __pycache__
 
 # IDE setup
 .vscode
+
+# Build artifacts
+dist/
+cdk.out/
