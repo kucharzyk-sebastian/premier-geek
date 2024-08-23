@@ -39,3 +39,23 @@ Due to its strong relation to the installed dependencies and a relatively long t
 ```shell
 poetry run pyright
 ```
+
+## Deployment
+These instructions will allow you to deploy the app to AWS.
+
+### Prerequisites
+- Install the latest version of [aws-cli v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [set up credentials](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html). If you don't have the keys, follow [the documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html).
+- Install the latest version of [aws cdk v2](https://www.npmjs.com/package/aws-cdk) using [node](https://nodejs.org/en/download/):
+```shell
+npm install -g aws-cdk
+```
+
+### Deploy
+Deployment is as simple as running `cdk deploy pocPremierGeek`.
+
+### Environments
+Currently, we have the following environments deployed:
+
+| Environment | API URL                                                                          |
+|-------------|:--------------------------------------------------------------------------------:|
+| POC         | https://zsvbgcsuzg2qrbj7em5pglawgq0gnjpy.lambda-url.eu-central-1.on.aws          |
