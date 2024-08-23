@@ -8,6 +8,7 @@ packages = [{include = "premier_geek"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+premier-geek-api = {path = "./premier_geek/api", develop=true }
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.8.0"
@@ -15,6 +16,7 @@ aws-cdk-lib = "^2.154.1"
 constructs = "^10.3.0"
 cdk-poetry-asset-code = "^0.1.0"
 cdk-react-bucket-deployment = "^0.1.1"
+uvicorn = "^0.30.6"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.2"
@@ -62,6 +64,7 @@ lines-between-types = 1
 lines-after-imports = 2
 
 [tool.pyright]
+exclude = ["**/__pycache__", ".ruff_cache", "cdk.out", "**/dist", "**/node_modules"]
 reportMissingImports = true
 pythonVersion = "3.12"
 pythonPlatform = "Linux"
