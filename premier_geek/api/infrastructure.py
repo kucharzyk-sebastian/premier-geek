@@ -21,12 +21,12 @@ class Api(Construct):
         user_pool_client_id: str,
     ) -> None:
         super().__init__(scope, id)
-        self.create_api_function(
+        self._create_api_function(
             user_pool_id=user_pool_id,
             user_pool_client_id=user_pool_client_id,
         )
 
-    def create_api_function(
+    def _create_api_function(
         self,
         *,
         user_pool_id: str,
