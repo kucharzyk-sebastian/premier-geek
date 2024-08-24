@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     user_pool_client_id: str = Field(default=...)
     sport_monks_api_key_param_name: str = Field(default=...)
     sport_monks_api_key: str | None = Field(default=None)
+    model_arn: str = Field(default=...)
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
