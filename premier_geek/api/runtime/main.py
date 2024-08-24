@@ -2,14 +2,18 @@ import boto3
 
 from fastapi import Depends
 from fastapi import FastAPI
+from fastapi import Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from mangum import Mangum
+from runtime.errors import UnrelatedQueryError
 from runtime.repositories.squads_repository import Player
 from runtime.repositories.squads_repository import SquadsRepository
 from runtime.repositories.teams_repository import TeamsRepository
 from runtime.security import verify_token
 from runtime.services.team_id_extractor import TeamIdExtractor
 from runtime.settings import Settings
+from starlette import status
 
 
 settings = Settings()
@@ -31,6 +35,13 @@ app.add_middleware(
 )
 
 handler = Mangum(app)
+
+
+@app.exception_handler(UnrelatedQueryError)
+async def value_error_exception_handler(request: Request, exc: UnrelatedQueryError):
+    return JSONResponse(
+        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, content={"detail": "The question asked was unrelated."}
+    )
 
 
 @app.get("/players")
