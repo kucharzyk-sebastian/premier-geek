@@ -2,6 +2,7 @@ import json
 
 from mypy_boto3_bedrock_runtime import BedrockRuntimeClient
 from mypy_boto3_bedrock_runtime.type_defs import InvokeModelResponseTypeDef
+from runtime.errors import UnrelatedQueryError
 from runtime.repositories.teams_repository import Team
 
 
@@ -64,7 +65,10 @@ You should reply only with the team ID. Don't add any more information.
 
         text_response = self._extract_text_response(model_response)
 
-        return int(text_response)
+        try:
+            return int(text_response)
+        except ValueError as err:
+            raise UnrelatedQueryError(f"The query: '{query}' is unrelated to Premier League squads.") from err
 
     def _extract_text_response(self, model_response: InvokeModelResponseTypeDef) -> str:
         data: bytes = b""

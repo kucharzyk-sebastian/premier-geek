@@ -46,7 +46,7 @@ function App({ signOut, user }) {
       setHasSearched(true);
     } catch (error) {
       console.error('Error calling API:', error);
-      setError('Error calling API: ' + error.message);
+      setError(`The query is not related to PL squads. Try again.`);
     } finally {
       setIsLoading(false);
     }
