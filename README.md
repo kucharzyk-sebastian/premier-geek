@@ -8,20 +8,52 @@ Unlock instant access to Premier League talent insights through natural language
 ## Getting Started
 These instructions will get you a ready-to-use development environment.
 
-### Prerequisites
+### Backend
+
+#### Prerequisites
 - Install the latest version of [Python 3.12](https://www.python.org/downloads/).
 - Install the latest version of [poetry 1.8](https://python-poetry.org/docs/#installation).
+- set backend environment variables specified in [.env.template](.env.template).
 
-### Set up a Python environment
+#### Set up a Python environment
 You can set up the environment and install the required dependencies by running the command below:
 ```shell
 poetry install
 ```
 
-### Run tests
+#### Run tests
 The tests are based on [pytest](https://docs.pytest.org/) so running them boils down to executing a single command:
 ```shell
 poetry run pytest
+```
+
+#### Run the Local Server
+After setting up the environment, you can run the API. The project uses Uvicorn, an ASGI server, to run the application in the development mode. To start the server on your localhost at port 8000, use the following command:
+
+```shell
+poetry run uvicorn premier_geek.api.runtime.main:app --reload
+```
+
+When you have the server running, you can access swagger documentation under http://localhost:8000/docs
+
+### Frontend
+
+#### Prerequisites
+- Install the latest version of [Node 18](https://nodejs.org/en/download/).
+- set frontend environment variables specified in [.env.template](.env.template).
+
+#### Set up node environment
+You can set up the environment and install the required dependencies by running the commands below:
+```shell
+cd premier_geek/website/runtime
+npm install
+```
+
+#### Run the Local Server
+After setting up the environment, you can run the Website at localhost port 3000 by executing:
+
+```shell
+npm start
 ```
 
 
@@ -52,10 +84,3 @@ npm install -g aws-cdk
 
 ### Deploy
 Deployment is as simple as running `cdk deploy pocPremierGeek`.
-
-### Environments
-Currently, we have the following environments deployed:
-
-| Environment | API URL                                                                 | Website URL                           |
-|-------------|:-----------------------------------------------------------------------:|:-------------------------------------:|
-| POC         | https://zsvbgcsuzg2qrbj7em5pglawgq0gnjpy.lambda-url.eu-central-1.on.aws | https://d3q26j451d155y.cloudfront.net |
