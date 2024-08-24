@@ -1,6 +1,9 @@
 from pathlib import Path
 
+from aws_cdk import Aws
 from aws_cdk import Duration
+from aws_cdk.aws_iam import Effect
+from aws_cdk.aws_iam import PolicyStatement
 from aws_cdk.aws_lambda import Architecture
 from aws_cdk.aws_lambda import Function
 from aws_cdk.aws_lambda import FunctionUrlAuthType
@@ -19,11 +22,13 @@ class Api(Construct):
         *,
         user_pool_id: str,
         user_pool_client_id: str,
+        sport_monks_api_key_param_name: str,
     ) -> None:
         super().__init__(scope, id)
         self._create_api_function(
             user_pool_id=user_pool_id,
             user_pool_client_id=user_pool_client_id,
+            sport_monks_api_key_param_name=sport_monks_api_key_param_name,
         )
 
     def _create_api_function(
@@ -31,6 +36,7 @@ class Api(Construct):
         *,
         user_pool_id: str,
         user_pool_client_id: str,
+        sport_monks_api_key_param_name: str,
     ) -> None:
         self.function = Function(
             self,
@@ -49,7 +55,19 @@ class Api(Construct):
             environment={
                 "COGNITO__USER_POOL_ID": user_pool_id,
                 "COGNITO__USER_POOL_CLIENT_ID": user_pool_client_id,
+                "SPORT_MONKS_API_KEY_PARAM_NAME": sport_monks_api_key_param_name,
             },
+            initial_policy=[
+                PolicyStatement(
+                    actions=[
+                        "ssm:GetParameter",
+                    ],
+                    effect=Effect.ALLOW,
+                    resources=[
+                        f"arn:{Aws.PARTITION}:ssm:{Aws.REGION}:{Aws.ACCOUNT_ID}:parameter{sport_monks_api_key_param_name}"
+                    ],
+                ),
+            ],
         )
 
         self.function_url = self.function.add_function_url(auth_type=FunctionUrlAuthType.NONE)
