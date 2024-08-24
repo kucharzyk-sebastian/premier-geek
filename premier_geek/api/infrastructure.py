@@ -55,8 +55,8 @@ class Api(Construct):
                 retention=RetentionDays.ONE_WEEK,
             ),
             environment={
-                "COGNITO__USER_POOL_ID": user_pool_id,
-                "COGNITO__USER_POOL_CLIENT_ID": user_pool_client_id,
+                "USER_POOL_ID": user_pool_id,
+                "USER_POOL_CLIENT_ID": user_pool_client_id,
                 "SPORT_MONKS_API_KEY_PARAM_NAME": sport_monks_api_key_param_name,
                 "MODEL_ARN": model_arn,
             },
