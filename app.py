@@ -13,6 +13,7 @@ PremierGeek(
     access_token_validity=cdk.Duration.days(1),
     id_token_validity=cdk.Duration.days(1),
     refresh_token_validity=cdk.Duration.days(2),
+    sport_monks_api_key_param_name="/premiergeek/poc/sport-monks-api-key",
 )
 
 app.synth()

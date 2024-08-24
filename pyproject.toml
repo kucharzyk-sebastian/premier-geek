@@ -54,6 +54,9 @@ extend-select = [
 extend-safe-fixes = [
     "TCH", # move import from and to TYPE_CHECKING blocks
 ]
+ignore = [
+    "PGH003" # Use specific rule codes when ignoring type issues
+]
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"

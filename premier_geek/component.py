@@ -18,6 +18,7 @@ class PremierGeek(Stack):
         access_token_validity: Duration,
         id_token_validity: Duration,
         refresh_token_validity: Duration,
+        sport_monks_api_key_param_name: str,
         **kwargs: Any,
     ) -> None:
         super().__init__(scope, construct_id, **kwargs)
@@ -33,5 +34,6 @@ class PremierGeek(Stack):
             "Api",
             user_pool_id=self.user_profile_store.user_pool.user_pool_id,
             user_pool_client_id=self.user_profile_store.user_pool_client.user_pool_client_id,
+            sport_monks_api_key_param_name=sport_monks_api_key_param_name,
         )
         self.website = Website(self, "Website")
