@@ -38,6 +38,8 @@ class Api(Construct):
         user_pool_client_id: str,
         sport_monks_api_key_param_name: str,
     ) -> None:
+        model_arn = f"arn:{Aws.PARTITION}:bedrock:{Aws.REGION}::foundation-model/anthropic.claude-3-haiku-20240307-v1:0"
+
         self.function = Function(
             self,
             "Function",
@@ -56,6 +58,7 @@ class Api(Construct):
                 "COGNITO__USER_POOL_ID": user_pool_id,
                 "COGNITO__USER_POOL_CLIENT_ID": user_pool_client_id,
                 "SPORT_MONKS_API_KEY_PARAM_NAME": sport_monks_api_key_param_name,
+                "MODEL_ARN": model_arn,
             },
             initial_policy=[
                 PolicyStatement(
@@ -66,6 +69,13 @@ class Api(Construct):
                     resources=[
                         f"arn:{Aws.PARTITION}:ssm:{Aws.REGION}:{Aws.ACCOUNT_ID}:parameter{sport_monks_api_key_param_name}"
                     ],
+                ),
+                PolicyStatement(
+                    actions=[
+                        "bedrock:InvokeModel",
+                    ],
+                    effect=Effect.ALLOW,
+                    resources=[model_arn],
                 ),
             ],
         )
