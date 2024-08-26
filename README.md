@@ -2,7 +2,7 @@
 
 ### An AI-powered Premier League squad intelligence.
 
-Unlock instant access to Premier League talent insights through natural language queries. The technology delivers precise player profiles, including names, positions, and birthdays, boosting team analysis and scouting processes.
+Unlock instant access to Premier League talent insights through natural language queries. The technology delivers precise player profiles, including names, positions, and birthdays, boosting team analysis and scouting processes. A more detailed description of the solution can be found in [docs/high-level-description.pdf](docs/high-level-description.pdf).
 
 
 ## Getting Started
